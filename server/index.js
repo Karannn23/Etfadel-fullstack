@@ -47,7 +47,7 @@ app.use(function (req, res, next) {
 
 app.use(
   cors({
-    origin: 'https://admin-frontend-b1ww.onrender.com/',
+    origin: '*',
     credentials: true,
   })
 );
