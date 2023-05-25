@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL,
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://admin-backend-ssph.onrender.com',
     prepareHeaders: (headers, { getState }) => {
         const token = localStorage.token;
         if (!headers.has("Authorization") && token) {
