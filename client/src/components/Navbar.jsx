@@ -32,7 +32,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const handleClose = () => setAnchorEl(null);
   const handleLogout = () => {  
     // eslint-disable-next-line
-    const response = fetch(`${process.env.REACT_APP_BASE_URL}/general/logout`, {
+    const response = fetch('https://admin-backend-ssph.onrender.com/general/logout', {
         method: "GET",
         headers: {
         "Content-Type": "application/json",
