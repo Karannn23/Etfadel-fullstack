@@ -25,7 +25,7 @@ export default function (req, res, next) {
   const authHeader = req.headers["authorization"];
   if (authHeader) {
     const split = authHeader && authHeader.split(" ")[1];
-    const token = String(split).replaceAll('"', "");
+    const token = split.toString().replaceAll('"', "");
     jwt.verify(token, process.env.SECRET_KEY, (err, valid) => {
       if (err) {
         res.status(401).send({ result: "Provide valid token" });
