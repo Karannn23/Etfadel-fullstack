@@ -24,6 +24,7 @@ export default function (req, res, next) {
   // }
   const authHeader = req.headers["authorization"];
   if (authHeader) {
+     console.log(process.env.SECRET_KEY);
     const split = authHeader && authHeader.split(" ")[1];
     const token = split.toString().replaceAll('"', "");
     jwt.verify(token, process.env.SECRET_KEY, (err, valid) => {
