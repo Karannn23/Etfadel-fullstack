@@ -53,7 +53,7 @@ const Login = () => {
       return;
     } else {
       console.log("Submittting login password")
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/general/login`, {
+      const response = await fetch('https://admin-backend-ssph.onrender.com/general/login', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
