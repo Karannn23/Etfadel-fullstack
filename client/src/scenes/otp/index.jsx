@@ -52,7 +52,7 @@ const OTP = () => {
       return;
     } else {
       console.log("Submitting otp")
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/general/otp`, {
+      const response = await fetch('https://admin-backend-ssph.onrender.com/general/otp', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -82,7 +82,7 @@ const OTP = () => {
     };
       console.log("Resending otp")
       // eslint-disable-next-line
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/general/otpresend`, {
+      const response = await fetch('https://admin-backend-ssph.onrender.com/general/otpresend', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
