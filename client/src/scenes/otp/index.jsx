@@ -183,17 +183,6 @@ const OTP = () => {
               </Grid>
             </Grid>
             <Button
-              onClick={handleResend}
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2, p: "0.5rem 0", background: theme.palette.primary[400],
-                "&:hover": { backgroundColor: theme.palette.primary[300]} 
-                  }}
-            >
-              Resend OTP
-            </Button>
-            <Button
               onClick={handleSubmit}
               type="submit"
               fullWidth
@@ -203,6 +192,17 @@ const OTP = () => {
                   }}
             >
               Sign In
+            </Button>
+            <Button
+              onClick={handleResend}
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2, p: "0.5rem 0", background: theme.palette.primary[400],
+                "&:hover": { backgroundColor: theme.palette.primary[300]} 
+                  }}
+            >
+              Resend OTP
             </Button>
             <Button
               onClick={handleLogout}
