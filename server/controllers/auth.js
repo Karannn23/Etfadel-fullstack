@@ -3,6 +3,7 @@ import OTP from "../models/OTP.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
+import gen from "@karannn23/otp-gen";
 
 const MAX_LOGIN_ATTEMPTS = 3;
 const LOCK_TIME_IN_MINUTES = 15 * 60 * 1000;
@@ -49,7 +50,7 @@ export const postLogin = async (req, res) => {
     );
 
     const u = await OTP.findOne({ email: user.email });
-    var otpGen = Math.floor(100000 + Math.random() * 900000);
+    var otpGen = gen.generate(6);
     var expiry = now + LOCK_TIME_IN_MINUTES;
 
     if (!u) {
@@ -71,7 +72,7 @@ export const postLogin = async (req, res) => {
       });
       return;
     } else {
-      otpGen = Math.floor(100000 + Math.random() * 900000);
+      var otpGen = gen.generate(6);
       await OTP.findOneAndUpdate(
         { email: u.email },
         {
@@ -206,7 +207,7 @@ export const getReOTP = async (req, res) => {
     });
     return;
   } else {
-    var otpGen = Math.floor(100000 + Math.random() * 900000);
+    var otpGen = gen.generate(6);
     await OTP.findOneAndUpdate(
       { email: user.email },
       {
