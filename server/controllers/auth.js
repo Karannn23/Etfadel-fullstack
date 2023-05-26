@@ -56,7 +56,7 @@ export const postLogin = async (req, res) => {
     if (!u) {
       const newUser = {
         email: user.email,
-        otp: parseInt(otpGen),
+        otp: otpGen,
         expiresAt: expiry,
       };
 
@@ -76,7 +76,7 @@ export const postLogin = async (req, res) => {
       await OTP.findOneAndUpdate(
         { email: u.email },
         {
-          otp: parseInt(otpGen),
+          otp: otpGen,
           expiresAt: expiry,
           resendAttempts: 0,
           failedLoginAttempts: 0,
@@ -211,7 +211,7 @@ export const getReOTP = async (req, res) => {
     await OTP.findOneAndUpdate(
       { email: user.email },
       {
-        otp: parseInt(otpGen),
+        otp: otpGen,
         expiresAt: expiry,
         $inc: { resendAttempts: 1 },
         failedLoginAttempts: 0,
